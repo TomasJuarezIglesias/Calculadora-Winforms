@@ -44,8 +44,8 @@
             this.BtnMultiplicacion = new System.Windows.Forms.Button();
             this.BtnDIvision = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.LabelDatos = new System.Windows.Forms.Label();
             this.BtnClean = new System.Windows.Forms.Button();
+            this.LabelDatos = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -224,16 +224,6 @@
             this.panel1.Size = new System.Drawing.Size(421, 457);
             this.panel1.TabIndex = 15;
             // 
-            // LabelDatos
-            // 
-            this.LabelDatos.BackColor = System.Drawing.Color.ForestGreen;
-            this.LabelDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelDatos.Location = new System.Drawing.Point(69, 37);
-            this.LabelDatos.Name = "LabelDatos";
-            this.LabelDatos.Size = new System.Drawing.Size(292, 88);
-            this.LabelDatos.TabIndex = 15;
-            this.LabelDatos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // BtnClean
             // 
             this.BtnClean.Location = new System.Drawing.Point(11, 393);
@@ -244,6 +234,16 @@
             this.BtnClean.UseVisualStyleBackColor = true;
             this.BtnClean.Click += new System.EventHandler(this.BtnClean_Click);
             // 
+            // LabelDatos
+            // 
+            this.LabelDatos.BackColor = System.Drawing.Color.ForestGreen;
+            this.LabelDatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 35F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelDatos.Location = new System.Drawing.Point(69, 37);
+            this.LabelDatos.Name = "LabelDatos";
+            this.LabelDatos.Size = new System.Drawing.Size(292, 88);
+            this.LabelDatos.TabIndex = 15;
+            this.LabelDatos.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -252,6 +252,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

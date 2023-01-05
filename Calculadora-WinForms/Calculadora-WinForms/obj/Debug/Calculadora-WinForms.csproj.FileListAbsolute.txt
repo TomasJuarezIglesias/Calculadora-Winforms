@@ -9,3 +9,14 @@ C:\Users\Pc\Desktop\Proyectos\C#\Calculadora-Winforms\Calculadora-WinForms\Calcu
 C:\Users\Pc\Desktop\Proyectos\C#\Calculadora-Winforms\Calculadora-WinForms\Calculadora-WinForms\obj\Debug\Calculadora-WinForms.csproj.CoreCompileInputs.cache
 C:\Users\Pc\Desktop\Proyectos\C#\Calculadora-Winforms\Calculadora-WinForms\Calculadora-WinForms\obj\Debug\Calculadora-WinForms.exe
 C:\Users\Pc\Desktop\Proyectos\C#\Calculadora-Winforms\Calculadora-WinForms\Calculadora-WinForms\obj\Debug\Calculadora-WinForms.pdb
+C:\Users\Juli\Desktop\Calculadora-Winforms\Calculadora-WinForms\Calculadora-WinForms\bin\Debug\Calculadora-WinForms.exe.config
+C:\Users\Juli\Desktop\Calculadora-Winforms\Calculadora-WinForms\Calculadora-WinForms\bin\Debug\Calculadora-WinForms.exe
+C:\Users\Juli\Desktop\Calculadora-Winforms\Calculadora-WinForms\Calculadora-WinForms\bin\Debug\Calculadora-WinForms.pdb
+C:\Users\Juli\Desktop\Calculadora-Winforms\Calculadora-WinForms\Calculadora-WinForms\obj\Debug\Calculadora-WinForms.csproj.AssemblyReference.cache
+C:\Users\Juli\Desktop\Calculadora-Winforms\Calculadora-WinForms\Calculadora-WinForms\obj\Debug\Calculadora-WinForms.csproj.SuggestedBindingRedirects.cache
+C:\Users\Juli\Desktop\Calculadora-Winforms\Calculadora-WinForms\Calculadora-WinForms\obj\Debug\Calculadora_WinForms.Form1.resources
+C:\Users\Juli\Desktop\Calculadora-Winforms\Calculadora-WinForms\Calculadora-WinForms\obj\Debug\Calculadora_WinForms.Properties.Resources.resources
+C:\Users\Juli\Desktop\Calculadora-Winforms\Calculadora-WinForms\Calculadora-WinForms\obj\Debug\Calculadora-WinForms.csproj.GenerateResource.cache
+C:\Users\Juli\Desktop\Calculadora-Winforms\Calculadora-WinForms\Calculadora-WinForms\obj\Debug\Calculadora-WinForms.csproj.CoreCompileInputs.cache
+C:\Users\Juli\Desktop\Calculadora-Winforms\Calculadora-WinForms\Calculadora-WinForms\obj\Debug\Calculadora-WinForms.exe
+C:\Users\Juli\Desktop\Calculadora-Winforms\Calculadora-WinForms\Calculadora-WinForms\obj\Debug\Calculadora-WinForms.pdb

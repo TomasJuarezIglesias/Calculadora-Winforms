@@ -12,155 +12,180 @@ namespace Calculadora_WinForms
 {
     public partial class Form1 : Form
     {
-        Operaciones GestorOperaciones = new Operaciones();
-
+        Operacion operacion;
+        double valorActual;
+        bool primerValor;
         public Form1()
         {
             InitializeComponent();
+            valorActual = 0;
         }
 
         private void BtnCero_Click(object sender, EventArgs e)
         {
-            GestorOperaciones.AgregarValor(0);
             MostrarDatos("0");
+            ActualizarValor();
         }
 
         private void BtnUno_Click(object sender, EventArgs e)
         {
-            GestorOperaciones.AgregarValor(1);
             MostrarDatos("1");
+            ActualizarValor();
         }
 
         private void BtnDos_Click(object sender, EventArgs e)
         {
-            GestorOperaciones.AgregarValor(2);
             MostrarDatos("2");
+            ActualizarValor();
         }
 
         private void BtnTres_Click(object sender, EventArgs e)
         {
-            GestorOperaciones.AgregarValor(3);
             MostrarDatos("3");
+            ActualizarValor();
         }
 
         private void BtnCuatro_Click(object sender, EventArgs e)
         {
-            GestorOperaciones.AgregarValor(4);
             MostrarDatos("4");
+            ActualizarValor();
         }
 
         private void BtnCinco_Click(object sender, EventArgs e)
         {
-            GestorOperaciones.AgregarValor(5);
             MostrarDatos("5");
+            ActualizarValor();
         }
 
         private void BtnSeis_Click(object sender, EventArgs e)
         {
-            GestorOperaciones.AgregarValor(6);
             MostrarDatos("6");
+            ActualizarValor();
         }
 
         private void BtnSiete_Click(object sender, EventArgs e)
         {
-            GestorOperaciones.AgregarValor(7);
             MostrarDatos("7");
+            ActualizarValor();
         }
 
         private void BtnOcho_Click(object sender, EventArgs e)
         {
-            GestorOperaciones.AgregarValor(8);
             MostrarDatos("8");
+            ActualizarValor();
         }
 
         private void BtnNueve_Click(object sender, EventArgs e)
         {
-            GestorOperaciones.AgregarValor(9);
             MostrarDatos("9");
+            ActualizarValor();
         }
 
         private void BtnIgual_Click(object sender, EventArgs e)
         {
-            MostrarResultado(GestorOperaciones.RealizarOperacion());   
+            try
+            {
+                ValidacionOperacion();
+                ActualizarValor();
+                operacion.SetValores(primerValor, valorActual);
+                operacion.Calcular();
+                LabelDatos.Text = operacion.Resultado.ToString();
+            }
+            catch(DivideByZeroException zex)
+            {
+                MessageBox.Show(zex.Message, "Epa",MessageBoxButtons.OK,MessageBoxIcon.Stop);
+                operacion.LimpiarValores();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Epa", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            }
         }
 
         private void BtnMas_Click(object sender, EventArgs e)
         {
-            bool canAdd = ValidacionOperacion();
-            if (canAdd)
-            {
-                GestorOperaciones.AgregarOperacion("+");
-                MostrarDatos("+");
-                return;
-            }
-            MessageBox.Show("Ya has puesto una operacion a realizar");
+            CrearOperacion(new Suma());
+            LabelDatos.Text = "0";
         }
 
         private void BtnMenos_Click(object sender, EventArgs e)
         {
-            bool canAdd = ValidacionOperacion();
-            if (canAdd)
-            {
-                GestorOperaciones.AgregarOperacion("-");
-                MostrarDatos("-");
-                return;
-            }
-            MessageBox.Show("Ya has puesto una operacion a realizar");
+            CrearOperacion(new Resta());
+            LabelDatos.Text = "0";
         }
 
         private void BtnMultiplicacion_Click(object sender, EventArgs e)
         {
-            bool canAdd = ValidacionOperacion();
-            if (canAdd)
-            {
-                GestorOperaciones.AgregarOperacion("*");
-                MostrarDatos("*");
-                return;
-            }
-            MessageBox.Show("Ya has puesto una operacion a realizar");
+            CrearOperacion(new Multiplicacion());
+            LabelDatos.Text = "0";
         }
 
         private void BtnDIvision_Click(object sender, EventArgs e)
-        {   
-            bool canAdd = ValidacionOperacion();
-            if (canAdd)
-            {
-                GestorOperaciones.AgregarOperacion("%");
-                MostrarDatos("%");
-                return;
-            }
-            MessageBox.Show("Ya has puesto una operacion a realizar");
+        {
+            CrearOperacion(new Division());
+            LabelDatos.Text = "0";
         }
 
-
+        public void ActualizarValor()
+        {
+            primerValor = false;
+            if (operacion == null)
+            {
+                primerValor = true;
+            }
+            valorActual = double.Parse(LabelDatos.Text);
+        }
         public void MostrarDatos(string info)
         {
-            LabelDatos.Text = $"{LabelDatos.Text}{info}";
+            if (int.Parse(LabelDatos.Text) == 0)
+            {
+                LabelDatos.Text = info;
+            }
+            else
+            {
+                LabelDatos.Text = $"{LabelDatos.Text}{info}";
+            }
         }
 
-        public void MostrarResultado(string resultado)
-        {
-            LabelDatos.Text = resultado;
-        }
 
         public void LimpiarDatos()
         {
-            LabelDatos.Text = string.Empty;
+            operacion.LimpiarValores();
+            LabelDatos.Text = "0";
         }
 
         private void BtnClean_Click(object sender, EventArgs e)
         {
-            GestorOperaciones.LimpiarPropiedades();
             LimpiarDatos();
         }
 
-        public bool ValidacionOperacion()
+        public void ValidacionOperacion()
         {
-            if (GestorOperaciones.Operacion == null)
+            if (operacion == null)
             {
-                return true;
+                throw new Exception("Tenes que usar los botoncitos para las operaciones piscui");
             }
-            return false;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            LabelDatos.Text = "0";
+        }
+        private void CrearOperacion(Operacion nuevaOperacion)
+        {
+            if (operacion == null)
+            {
+                operacion = nuevaOperacion;
+            }
+            if (operacion != null && operacion.GetType() != nuevaOperacion.GetType())
+            {
+                double valor1 = operacion.Valor1;
+                operacion = nuevaOperacion;
+                operacion.Valor1 = valor1;
+                operacion.Valor2 = valorActual;
+                primerValor = false;
+            }
+            operacion.SetValores(primerValor, valorActual);
         }
     }
 }
